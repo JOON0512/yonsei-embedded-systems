@@ -1,0 +1,12 @@
+.DS_Store
+*.jou
+*.log
+*.str
+*.bit
+*.bin
+*.elf
+.Xil/
+*.cache/
+*.runs/
+*.sim/
+*.hw/
