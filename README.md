@@ -1,26 +1,19 @@
-# 임베디드시스템 실험 소스
+# Embedded systems labs
 
-본인의 로컬 실습 폴더와 제출 압축파일에서 복원한 Verilog·C·보드 제약 파일입니다. 수업 제공 보드 예제와 수정한 실습 코드가 함께 포함되어 있습니다. HUINS·Xilinx 등 원래 작성자와 라이선스 헤더를 보존했습니다.
+Zynq 보드로 진행한 임베디드시스템 실험. Verilog, C, 보드 제약 파일을 담았습니다.
 
 | 폴더 | 내용 |
-|---|---|
-| `week2_source` | Zynq 보드의 버튼·스위치·LED 입출력 |
-| `Week3 source` | 시계 및 7-segment 표시 모듈 |
-| `week5_source` | TFT LCD 타이밍·색상·BRAM 제어 및 초기화 데이터 |
-| `week11` | AHB/APB 주변장치·버튼 인터럽트, Xilinx GIC C 예제 |
+| --- | --- |
+| [week2_source](week2_source) | 버튼, 스위치, LED |
+| [Week3 source](Week3%20source) | 시계와 7-segment 표시 |
+| [week5_source](week5_source) | TFT LCD 타이밍, 색상, BRAM |
+| [week11](week11) | AHB/APB 주변장치, 버튼 인터럽트, GIC |
+| [report-fragments](report-fragments) | 15주차 LED·8-byte 전송 부분 코드 |
 
-## 실행에 필요한 것
+## Build
 
-원래 실습용 Xilinx Zynq 보드, 보드에 맞는 Vivado/SDK 또는 호환 도구, 수업에서 사용한 블록 디자인과 IP가 필요합니다. `.xdc`의 핀·전압 설정을 다른 보드에 그대로 적용하지 마세요.
+실습용 Zynq 보드와 Vivado/SDK가 필요합니다. 각 주차를 별도 프로젝트로 구성하고, 해당 보드의 블록 디자인·생성 IP·BSP를 연결해야 합니다. `system_wrapper`, BRAM IP, `xparameters.h` 등은 이 저장소만으로 생성되지 않습니다.
 
-`system_wrapper`, BRAM 등의 생성 IP와 전체 Vivado 프로젝트, C 코드가 사용하는 BSP 및 `xparameters.h`가 모두 포함된 독립 빌드 프로젝트는 아닙니다. 각 주차에는 같은 이름의 `top` 모듈이 있으므로 주차별로 별도 프로젝트를 구성해야 합니다.
+핀 배치는 포함된 `.xdc`를 참고하세요. 다른 보드에서는 핀과 전압 설정을 바꿔야 합니다.
 
-## 검증과 범위
-
-2026-10-24에 소스 파일을 복원하고 기존 저작권 헤더를 확인했습니다. 실제 FPGA 합성·타이밍 분석·보드 동작과 BSP를 포함한 C 빌드는 재실행하지 않았습니다. 학기 전체 주차나 모든 제출 이력의 복원본은 아닙니다.
-
-Xilinx 헤더가 있는 코드는 해당 헤더의 장치 사용 범위 등 조건을 따릅니다. 이 저장소 전체에 별도 통일 라이선스를 덧씌우지 않았습니다.
-
-## LearnUs 대조 (2026-10-25)
-
-11개 주차의 본인 결과 보고서도 확보했습니다. 보고서에 남은 15주차 LED·8-byte 전송 코드는 [report-fragments](report-fragments)에 부분 코드임을 표시해 추가했습니다. 완전한 주차별 프로젝트·최종 제출 소스는 추가로 확인되지 않았습니다.
+HUINS·Xilinx 보드 예제와 수업 제공 코드를 기반으로 합니다. 라이선스는 각 파일의 원래 헤더를 따릅니다.
